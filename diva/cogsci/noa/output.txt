@@ -1,0 +1,576 @@
+java cogsci.Control 
+WARNING: Canvas3D constructed with a null GraphicsConfiguration.
+adding keyboard behavior
+adding keyboard behavior
+--- Registering primitive object types ---
+creating: box
+creating: sphere
+creating: cylinder
+creating: fancy
+Error: hub named "coonuts" does not exist
+spot-<4>
+dog-<3>
+swim-<2>
+dog-<4>
+swim-<2>
+meat-<0>
+mammal-<0>
+sequoia-<0>
+summer-<0>
+furry-<0>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+water-<1>
+swim-<2>
+island-<0>
+turtle-<0>
+bird-<0>
+meat-<2>
+dog-<5>
+swim-<2>
+meat-<2>
+mammal-<0>
+sequoia-<0>
+summer-<0>
+furry-<0>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+raptor-<1>
+dinosaur-<0>
+meat-<2>
+tyrannosaurus-<1>
+dinosaur-<0>
+meat-<2>
+veal-<1>
+calf-<0>
+meat-<2>
+food-<1>
+grain-<0>
+meat-<2>
+mammal-<2>
+dog-<6>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<0>
+summer-<0>
+furry-<0>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+deer-<1>
+mammal-<2>
+grass-<0>
+woods-<0>
+run-<0>
+calf-<1>
+mammal-<2>
+grass-<0>
+farm-<0>
+walk-<0>
+mooooooooooo-<0>
+veal-<1>
+grain-<0>
+animal-<1>
+mammal-<2>
+bird-<0>
+land-<0>
+turtle-<0>
+milk-<1>
+mammal-<2>
+fur-<1>
+mammal-<2>
+sequoia-<2>
+dog-<7>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<2>
+summer-<0>
+furry-<0>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+summer-<1>
+dog-<7>
+sequoia-<2>
+summer-<3>
+dog-<8>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<2>
+summer-<3>
+furry-<0>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+sequoia-<3>
+dog-<8>
+summer-<3>
+furry-<2>
+dog-<9>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<0>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+chicken-<2>
+bird-<1>
+chicken-<2>
+animal-<1>
+air-<0>
+land-<0>
+water-<1>
+grain-<1>
+chicken-<2>
+calf-<1>
+food-<1>
+dog-<10>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<0>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+tessa-<2>
+dog-<11>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<2>
+jump-<0>
+run-<0>
+play-<0>
+land-<0>
+jump-<2>
+dog-<12>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<2>
+jump-<2>
+run-<0>
+play-<0>
+land-<0>
+run-<2>
+dog-<13>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<2>
+jump-<2>
+run-<2>
+play-<0>
+land-<0>
+deer-<2>
+mammal-<2>
+grass-<0>
+woods-<0>
+run-<2>
+play-<2>
+dog-<14>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<2>
+jump-<2>
+run-<2>
+play-<2>
+land-<0>
+land-<2>
+animal-<2>
+mammal-<2>
+bird-<1>
+land-<2>
+turtle-<0>
+bird-<2>
+chicken-<2>
+animal-<2>
+air-<0>
+land-<2>
+water-<1>
+farm-<1>
+calf-<1>
+land-<2>
+machine-<0>
+woods-<1>
+deer-<2>
+land-<2>
+dog-<15>
+swim-<2>
+meat-<2>
+mammal-<2>
+sequoia-<3>
+summer-<3>
+furry-<2>
+chicken-<2>
+tessa-<2>
+jump-<2>
+run-<2>
+play-<2>
+land-<2>
+park-<3>
+island-<2>
+park-<4>
+island-<2>
+island-<2>
+water-<2>
+swim-<2>
+island-<2>
+turtle-<0>
+bird-<2>
+tree-<1>
+island-<2>
+coconuts-<0>
+park-<5>
+island-<2>
+island-<2>
+island-<4>
+park-<6>
+island-<4>
+island-<4>
+water-<3>
+swim-<2>
+island-<4>
+turtle-<0>
+bird-<2>
+tree-<2>
+island-<4>
+coconuts-<0>
+park-<7>
+island-<4>
+island-<4>
+famous-<3>
+coconuts-<4>
+tree-<5>
+island-<6>
+park-<8>
+spot-<4>
+island-<6>
+island-<6>
+water-<4>
+swim-<2>
+island-<6>
+turtle-<0>
+bird-<2>
+tree-<6>
+island-<6>
+park-<9>
+spot-<4>
+island-<6>
+island-<6>
+FINDING pathway from spot-<4> DEPTH 1
+	Next spoke: spot -> isa -> dog
+	Found next hub to search down: dog-<15>
+FINDING pathway from dog-<15> DEPTH 2
+	Next spoke: sequoia -> isa -> dog
+	Found next hub to search down: sequoia-<3>
+FINDING pathway from sequoia-<3> DEPTH 3
+	Next spoke: sequoia -> plays-with -> summer
+	Found next hub to search down: summer-<3>
+FINDING pathway from summer-<3> DEPTH 4
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub summer-<3>: spoke sequoia -> plays-with -> summer is a dead end
+	Next spoke: null
+	From hub sequoia-<3>: spoke sequoia -> isa -> dog is a dead end
+	Next spoke: summer -> isa -> dog
+	Found next hub to search down: summer-<3>
+FINDING pathway from summer-<3> DEPTH 3
+	Next spoke: null
+	From hub summer-<3>: spoke summer -> isa -> dog is a dead end
+	Next spoke: dog -> can -> swim
+	Found next hub to search down: swim-<2>
+FINDING pathway from swim-<2> DEPTH 3
+	Next spoke: swim -> in -> water
+	Found next hub to search down: water-<4>
+FINDING pathway from water-<4> DEPTH 4
+	Next spoke: water -> surrounds -> island
+	Found next hub to search down: island-<6>
+FINDING pathway from island-<6> DEPTH 5
+	Next spoke: island -> in -> park
+	Found next hub to search down: park-<9>
+FINDING pathway from park-<9> DEPTH 6
+	WILD GOOSE CHASE
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	WILD GOOSE CHASE
+	From hub park-<9>: spoke island -> in -> park is a dead end
+	Next spoke: island -> in -> park
+	Found next hub to search down: park-<9>
+FINDING pathway from park-<9> DEPTH 6
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub park-<9>: spoke island -> in -> park is a dead end
+	Next spoke: island -> has -> tree
+	Found next hub to search down: tree-<6>
+FINDING pathway from tree-<6> DEPTH 6
+	Next spoke: tree -> grows -> coconuts
+	Found next hub to search down: coconuts-<4>
+	Path complete, found coconuts link after 5 hubs
+Found pathway 1
+FINDING pathway from spot-<4> DEPTH 1
+	Next spoke: spot -> plays-in -> park
+	Found next hub to search down: park-<9>
+FINDING pathway from park-<9> DEPTH 2
+	Next spoke: null
+	From hub park-<9>: spoke spot -> plays-in -> park is a dead end
+	Next spoke: spot -> isa -> famous
+	Found next hub to search down: famous-<3>
+FINDING pathway from famous-<3> DEPTH 2
+	Next spoke: null
+	From hub famous-<3>: spoke spot -> isa -> famous is a dead end
+	Next spoke: null
+	Found next hub to search down: dog-<15>
+FINDING pathway from dog-<15> DEPTH 2
+	Next spoke: dog -> eats -> meat
+	Found next hub to search down: meat-<2>
+FINDING pathway from meat-<2> DEPTH 3
+	Next spoke: raptor -> eats -> meat
+	Found next hub to search down: raptor-<1>
+FINDING pathway from raptor-<1> DEPTH 4
+	Next spoke: null
+	From hub raptor-<1>: spoke raptor -> eats -> meat is a dead end
+	Next spoke: tyrannosaurus -> eats -> meat
+	Found next hub to search down: tyrannosaurus-<1>
+FINDING pathway from tyrannosaurus-<1> DEPTH 4
+	Next spoke: null
+	From hub tyrannosaurus-<1>: spoke tyrannosaurus -> eats -> meat is a dead end
+	Next spoke: veal -> isa -> meat
+	Found next hub to search down: veal-<1>
+FINDING pathway from veal-<1> DEPTH 4
+	Next spoke: veal -> isa -> calf
+	Found next hub to search down: calf-<1>
+FINDING pathway from calf-<1> DEPTH 5
+	Next spoke: calf -> isa -> mammal
+	Found next hub to search down: mammal-<2>
+FINDING pathway from mammal-<2> DEPTH 6
+	WILD GOOSE CHASE
+	Next spoke: deer -> isa -> mammal
+	Found next hub to search down: deer-<2>
+FINDING pathway from deer-<2> DEPTH 7
+	Next spoke: deer -> can -> run
+	Found next hub to search down: run-<2>
+FINDING pathway from run-<2> DEPTH 8
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub run-<2>: spoke deer -> can -> run is a dead end
+	Next spoke: deer -> lives -> woods
+	Found next hub to search down: woods-<1>
+FINDING pathway from woods-<1> DEPTH 8
+	Next spoke: woods -> isa -> land
+	Found next hub to search down: land-<2>
+MAX DEPTH REACHED
+	From hub land-<2>: spoke woods -> isa -> land is a dead end
+	Next spoke: null
+	From hub woods-<1>: spoke deer -> lives -> woods is a dead end
+	Next spoke: null
+	From hub deer-<2>: spoke deer -> isa -> mammal is a dead end
+	WILD GOOSE CHASE
+	Next spoke: mammal -> isa -> animal
+	Found next hub to search down: animal-<2>
+FINDING pathway from animal-<2> DEPTH 7
+	Next spoke: bird -> isa -> animal
+	Found next hub to search down: bird-<2>
+FINDING pathway from bird-<2> DEPTH 8
+	Next spoke: bird -> lives -> water
+	Found next hub to search down: water-<4>
+MAX DEPTH REACHED
+	From hub water-<4>: spoke bird -> lives -> water is a dead end
+	Next spoke: chicken -> isa -> bird
+	Found next hub to search down: chicken-<2>
+MAX DEPTH REACHED
+	From hub chicken-<2>: spoke chicken -> isa -> bird is a dead end
+	Next spoke: bird -> lives -> land
+	Found next hub to search down: land-<2>
+MAX DEPTH REACHED
+	From hub land-<2>: spoke bird -> lives -> land is a dead end
+	Next spoke: null
+	From hub bird-<2>: spoke bird -> isa -> animal is a dead end
+	Next spoke: animal -> lives -> land
+	Found next hub to search down: land-<2>
+FINDING pathway from land-<2> DEPTH 8
+	WILD GOOSE CHASE
+	Next spoke: farm -> isa -> land
+	Found next hub to search down: farm-<1>
+MAX DEPTH REACHED
+	From hub farm-<1>: spoke farm -> isa -> land is a dead end
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub land-<2>: spoke animal -> lives -> land is a dead end
+	Next spoke: null
+	From hub animal-<2>: spoke mammal -> isa -> animal is a dead end
+	WILD GOOSE CHASE
+	Next spoke: mammal -> drinks -> milk
+	Found next hub to search down: milk-<1>
+FINDING pathway from milk-<1> DEPTH 7
+	Next spoke: null
+	From hub milk-<1>: spoke mammal -> drinks -> milk is a dead end
+	WILD GOOSE CHASE
+	Next spoke: mammal -> has -> fur
+	Found next hub to search down: fur-<1>
+FINDING pathway from fur-<1> DEPTH 7
+	Next spoke: null
+	From hub fur-<1>: spoke mammal -> has -> fur is a dead end
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub mammal-<2>: spoke calf -> isa -> mammal is a dead end
+	Next spoke: calf -> lives -> farm
+	Found next hub to search down: farm-<1>
+FINDING pathway from farm-<1> DEPTH 6
+	Next spoke: null
+	From hub farm-<1>: spoke calf -> lives -> farm is a dead end
+	Next spoke: calf -> eats -> grain
+	Found next hub to search down: grain-<1>
+FINDING pathway from grain-<1> DEPTH 6
+	Next spoke: chicken -> eats -> grain
+	Found next hub to search down: chicken-<2>
+FINDING pathway from chicken-<2> DEPTH 7
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub chicken-<2>: spoke chicken -> eats -> grain is a dead end
+	Next spoke: grain -> isa -> food
+	Found next hub to search down: food-<1>
+FINDING pathway from food-<1> DEPTH 7
+	WILD GOOSE CHASE
+	Next spoke: null
+	WILD GOOSE CHASE
+	From hub food-<1>: spoke grain -> isa -> food is a dead end
+	Next spoke: null
+	From hub grain-<1>: spoke calf -> eats -> grain is a dead end
+	Next spoke: null
+	From hub calf-<1>: spoke veal -> isa -> calf is a dead end
+	Next spoke: null
+	From hub veal-<1>: spoke veal -> isa -> meat is a dead end
+	Next spoke: meat -> isa -> food
+	Found next hub to search down: food-<1>
+FINDING pathway from food-<1> DEPTH 4
+	Next spoke: null
+	From hub food-<1>: spoke meat -> isa -> food is a dead end
+	Next spoke: null
+	From hub meat-<2>: spoke dog -> eats -> meat is a dead end
+	Next spoke: dog -> isa -> mammal
+	Found next hub to search down: mammal-<2>
+FINDING pathway from mammal-<2> DEPTH 3
+	Next spoke: null
+	From hub mammal-<2>: spoke dog -> isa -> mammal is a dead end
+	Next spoke: dog -> isa -> furry
+	Found next hub to search down: furry-<2>
+FINDING pathway from furry-<2> DEPTH 3
+	Next spoke: null
+	From hub furry-<2>: spoke dog -> isa -> furry is a dead end
+	Next spoke: dog -> eats -> chicken
+	Found next hub to search down: chicken-<2>
+FINDING pathway from chicken-<2> DEPTH 3
+	Next spoke: null
+	From hub chicken-<2>: spoke dog -> eats -> chicken is a dead end
+	Next spoke: tessa -> isa -> dog
+	Found next hub to search down: tessa-<2>
+FINDING pathway from tessa-<2> DEPTH 3
+	Next spoke: null
+	From hub tessa-<2>: spoke tessa -> isa -> dog is a dead end
+	Next spoke: dog -> can -> jump
+	Found next hub to search down: jump-<2>
+FINDING pathway from jump-<2> DEPTH 3
+	Next spoke: null
+	From hub jump-<2>: spoke dog -> can -> jump is a dead end
+	Next spoke: dog -> can -> run
+	Found next hub to search down: run-<2>
+FINDING pathway from run-<2> DEPTH 3
+	Next spoke: null
+	From hub run-<2>: spoke dog -> can -> run is a dead end
+	Next spoke: dog -> can -> play
+	Found next hub to search down: play-<2>
+FINDING pathway from play-<2> DEPTH 3
+	Next spoke: null
+	From hub play-<2>: spoke dog -> can -> play is a dead end
+	Next spoke: dog -> lives -> land
+	Found next hub to search down: land-<2>
+FINDING pathway from land-<2> DEPTH 3
+	Next spoke: null
+	From hub land-<2>: spoke dog -> lives -> land is a dead end
+	Next spoke: null
+	Found next hub to search down: swim-<2>
+FINDING pathway from swim-<2> DEPTH 3
+	Next spoke: null
+	Found next hub to search down: water-<4>
+FINDING pathway from water-<4> DEPTH 4
+	Next spoke: null
+	Found next hub to search down: island-<6>
+FINDING pathway from island-<6> DEPTH 5
+	Next spoke: null
+	Found next hub to search down: tree-<6>
+FINDING pathway from tree-<6> DEPTH 6
+	Next spoke: tree -> grows -> coconuts
+	Found next hub to search down: coconuts-<4>
+	Path complete, found coconuts link after 5 hubs
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+activmon: decrementing activation ........................................................................... finished
+Saving Levi (0) to file noa.dat

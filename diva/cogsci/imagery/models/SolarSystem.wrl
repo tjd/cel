@@ -1,0 +1,171 @@
+#VRML V2.0 utf8
+
+#Definitions for the Sun and the Planets
+DEF Sun Transform {
+  translation 0 0 0
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"sun.gif"
+	  }
+	}
+	geometry	Sphere {
+	  radius	20
+	}
+  }
+}
+DEF Mercury Transform {
+  translation	38.7 0 0
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"mercury.gif"
+	  }
+	}
+	geometry	Sphere {
+	  radius	0.382	
+	}
+  }
+}
+DEF Venus Transform {
+  translation	72.3 0 0
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"venus.gif"
+	  }
+	}
+		geometry	Sphere {
+	  radius	0.951
+	}
+  }
+}
+DEF Earth Transform {
+  translation	100 0 0
+  children Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"earth.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	1.0
+		}
+	  }
+  }
+}
+DEF Mars Transform {
+  translation	152.3 0 0
+  children	Transform {
+  	rotation 1 0 0 1.57
+	children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"mars.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	0.531
+		}
+    }
+  }
+}
+
+DEF Jupiter Transform {
+  translation	520.3 0 0
+  children Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"jupiter.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	10.86
+		}
+	  }
+  }
+}
+
+DEF Saturn Transform {
+  translation	955.5 0 0
+  children	[
+  	DEF SaturnBody Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"saturn.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	9
+		}
+	  }
+	},
+	DEF SaturnRings Transform {
+		scale 2.0 2.0 0.05
+		children [
+			USE SaturnBody
+		]
+	}
+  ]
+}
+DEF Uranus Transform {
+  translation	192.2 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material	DEF _0 Material {
+	  }
+	}
+	geometry	Sphere {
+	  radius	3.97
+	}
+	  }
+}
+DEF Neptune Transform {
+  translation	301.1 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material	USE _0
+	}
+	geometry	Sphere {
+	  radius	3.86
+	}
+  }
+}
+DEF Pluto Transform {
+  translation	394.4 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material DEF ShinyBlue Material {
+		ambientIntensity	0.25
+		diffuseColor	0.33 0.34 0.6
+		specularColor	0.29 0.29 0.29
+			emissiveColor	0 0 0
+		shininess	0.79
+		transparency	0
+	  }
+	}
+	geometry	Sphere {
+	  radius	0.18
+	}
+  }
+}

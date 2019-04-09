@@ -1,0 +1,176 @@
+#VRML V1.0 ascii
+
+#Grass
+
+Separator {
+	Material { emissiveColor 0 0.5 0 }
+	Cube { width 100 height 0.5 depth 100 }
+}
+
+#Center Building Center
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 0 6 0 }
+	Rotation { rotation 0 1 0 .78}
+	Cube { width 10 height 12 depth 9}
+}	
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 0 6 0 }
+	Cube { width 10 height 12 depth 9}
+}	
+
+#Center Building Left
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 10 6 0 }
+	Rotation { rotation 0 1 0 .78 }
+	Cube { width 10 height 12 depth 9}
+}	
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 10 6 0 }
+	Cube { width 10 height 12 depth 9}
+}
+
+#Center Building Right
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -10 6 0 }
+	Rotation { rotation 0 1 0 .78}
+	Cube { width 10 height 12 depth 9}
+}	
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -10 6 0 }
+	Cube { width 10 height 12 depth 9}
+}	
+
+#Left Building
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -15 6 -5 }
+	Rotation { rotation 0 1 0 .78}
+	Cube { width 10 height 12 depth 9}
+}	
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -15 6 -5 }
+	Cube { width 10 height 12 depth 9}
+}
+
+#Rigth Building
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 15 6 -5 }
+	Rotation { rotation 0 1 0 .78}
+	Cube { width 10 height 12 depth 9}
+}	
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 15 6 -5 }
+	Cube { width 10 height 12 depth 9}
+}
+
+#Right Front Tower
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 13 10 5 }
+	Cylinder { parts ALL radius 3 height 20 }
+}
+
+Separator {
+	Material { emissiveColor 0.9 0.5 0.2 }
+	Translation { translation 13 23 5 }
+	Cone { parts ALL bottomRadius 3.5 height 6 }
+}
+
+#Left Front Tower
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -13 10 5 }
+	Cylinder { parts ALL radius 3 height 20 }
+}
+
+Separator {
+	Material { emissiveColor 0.9 0.5 0.2 }
+	Translation { translation -13 23 5 }
+	Cone { parts ALL bottomRadius 3.5 height 6 }
+}
+
+#Right Back Tower
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation 21 10 -9 }
+	Cylinder { parts ALL radius 3 height 20 }
+}
+
+Separator {
+	Material { emissiveColor 0.9 0.5 0.2 }
+	Translation { translation 21 23 -9 }
+	Cone { parts ALL bottomRadius 3.5 height 6 }
+}
+
+#Left Back Tower
+
+Separator {
+	Material { emissiveColor 0 0 0 }
+	Translation { translation -21 10 -9 }
+	Cylinder { parts ALL radius 3 height 20 }
+}
+
+Separator {
+	Material { emissiveColor 0.9 0.5 0.2 }
+	Translation { translation -21 23 -9 }
+	Cone { parts ALL bottomRadius 3.5 height 6 }
+}
+
+#       Small Blocks one Top of walls
+
+Separator {
+	Material { emissiveColor 0.5 0 0 }
+	Translation { translation 14.8 12.5 2 }
+	Rotation { rotation 0 1 0 1.57 } 
+	Cube { width 1 height 1 depth .4 }
+}
+
+Separator {
+	Material { emissiveColor 0.5 0 0 }
+	Translation { translation 15.7 12.5 .4 }
+	Rotation { rotation 0 1 0 .78 } 
+	Cube { width 1 height 1 depth .4 }
+}
+
+Separator {
+	Material { emissiveColor 0.5 0 0 }
+	Translation { translation 17.5 12.5 -.72 }
+	Rotation { rotation 0 1 0 0 } 
+	Cube { width 1 height 1 depth .4 }
+}
+
+Separator {
+	Material { emissiveColor 0.5 0 0 }
+	Translation { translation 19.5 12.5 -.72 }
+	Rotation { rotation 0 1 0 0 } 
+	Cube { width 1 height 1 depth .4 }
+}
+
+Separator {
+	Material { emissiveColor 0.5 0 0 }
+	Translation { translation 19.8 12.5 -1.2 }
+	Rotation { rotation 0 1 0 1.57 } 
+	Cube { width .5 height 1 depth .4 }
+}

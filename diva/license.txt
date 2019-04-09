@@ -1,0 +1,23 @@
+License for the cline Java package and the DIVA computer model
+
+(c) Copyright is held by David Croft, tforcdivad@yahoo.com
+http://zooid.org/~tforcdivad
+
+This software can be used freely for non-profit purposes. If you intend to use
+the software, or any parts of the code in a commercial product, please contact
+me. I am distributing the code freely to share ideas and because I think it is
+a waste of time when people invent the same wheel. However, if you are 
+profitting from long hours that I have spent in front of the terminal, please
+share the proceeds.
+
+You are welcome to modify the code, but please do not modify something and
+pretend the changes are your own work. If you are making improvements to the
+software, please contact me and maybe we can colloborate to provide better
+software that everyone can use.
+
+This code was started with support from the University of Waterloo and the
+Natural Sciences and Engineering Research Council of Canada
+(via Paul Thagard).
+
+I cloned much of this license from Kees van den Doel, who wrote the JASS SDK
+for processing sound. Visit: http://www.cs.ubc.ca/~kvdoel

@@ -1,0 +1,7 @@
+associate "aluminum atom" is atom
+associate aluminum madeof "aluminum atom"
+associate atom size tiny
+associate electron rotation nucleus
+associate nucleus has neutron
+associate nucleus has proton
+associate "hydrogen atom" has nucleus

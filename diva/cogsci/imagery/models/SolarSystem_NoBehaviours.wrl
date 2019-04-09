@@ -1,0 +1,204 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+info "Model of the Solar System for use in NOA Visual Thinking"
+title"Solar System"
+}
+
+#Definitions for the Sun and the Planets
+DEF Sun Transform {
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"sun.gif"
+	  }
+	}
+	geometry	Sphere {
+	  radius	10
+	}
+  }
+}
+DEF Venus Transform {
+  translation	23 0 0
+  center 		-23 0 0
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"venus.gif"
+	  }
+	}
+		geometry	Sphere {
+	  radius	1.5
+	}
+  }
+}
+DEF Mercury Transform {
+  translation	32 0 0
+  center 		-32 0 0
+  children	Shape {
+	appearance	Appearance {
+	  texture	ImageTexture {
+		repeatS	TRUE
+		repeatT	TRUE
+		url	"mercury.gif"
+	  }
+	}
+	geometry	Sphere {
+	  radius	3.2
+	}
+  }
+}
+DEF Earth Transform {
+  translation	44 0 0
+  center -44 0 0
+  children Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"earth.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	3.7
+		}
+	  }
+  }
+}
+DEF Mars Transform {
+  translation	54 0 0
+  center		-54 0 0
+  children	Transform {
+  	rotation 1 0 0 1.57
+	children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"mars.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	2.5
+		}
+    }
+  }
+}
+
+DEF Jupiter Transform {
+  translation	95 0 0
+  center 		-95 0 0
+  children Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"jupiter.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	9
+		}
+	  }
+  }
+}
+
+DEF Saturn Transform {
+  translation	125 0 0
+  center 		-125 0 0
+  children	[
+  	DEF SaturnBody Transform {
+	  rotation 1 0 0  1.57
+	  children Shape {
+		appearance	Appearance {
+		  texture	ImageTexture {
+			repeatS	TRUE
+			repeatT	TRUE
+			url	"saturn.gif"
+		  }
+		}
+		geometry	Sphere {
+		  radius	8
+		}
+	  }
+	},
+	DEF SaturnRings Transform {
+		scale 2.0 2.0 0.05
+		children [
+			USE SaturnBody
+		]
+	}
+  ]
+}
+DEF Uranus Transform {
+  translation	147 0 0
+  center 		-147 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material	DEF _0 Material {
+	  }
+	}
+	geometry	Sphere {
+	  radius	3
+	}
+	  }
+}
+DEF Neptune Transform {
+  translation	159 0 0
+  center		-159 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material	USE _0
+	}
+	geometry	Sphere {
+	  radius	3
+	}
+  }
+}
+DEF Pluto Transform {
+  translation	169 0 0
+  center		-169 0 0
+  children	Shape {
+	appearance	Appearance {
+	  material DEF ShinyBlue Material {
+		ambientIntensity	0.25
+		diffuseColor	0.33 0.34 0.6
+		specularColor	0.29 0.29 0.29
+			emissiveColor	0 0 0
+		shininess	0.79
+		transparency	0
+	  }
+	}
+	geometry	Sphere {
+	  radius	0.5
+	}
+  }
+}
+
+#Viewpoints
+DEF All-Planets Viewpoint {
+  position	92.3328 -190.576 2.97513
+  orientation	0.999946 -0.00764488 0.00700544  1.48358
+  fieldOfView	0.785398
+  description	"All-Planets"
+}
+DEF Sun-View Viewpoint {
+  position	2.60284 -43.1239 9.12426
+  orientation	0.999932 -0.00930598 0.00700536  1.2906
+  fieldOfView	0.785398
+  description	"Sun-View"
+}
+DEF Pluto-View Viewpoint {
+  position	194.32 -0.400881 -0.100096
+  orientation	-0.0290248 0.999268 0.0249351  1.41483
+  fieldOfView	0.785398
+  description	"Pluto-View"
+}

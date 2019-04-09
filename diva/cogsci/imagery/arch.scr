@@ -1,0 +1,7 @@
+associate arch kindof support
+associate column partof arch
+associate crosspiece partof arch
+associate arch1 instanceof arch
+associate arch2 instanceof arch
+associate Romans built arch2
+associate Japanese built arch1

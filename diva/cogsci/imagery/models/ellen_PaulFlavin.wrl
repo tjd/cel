@@ -1,0 +1,687 @@
+#VRML V2.0 utf8
+
+	#  H-Anim 1.1 Compliant Avatar	( 3d Humanoid Animation Standard )
+	#
+	#	"ellen",  female avatar in a red dress with movable limbs.
+
+
+	#		H-Anim Avatar files such as this can be animated in your
+	#		web browser, if it's Java enabled and has a VRML plug-in.
+	#
+	#	"People Poser of H-Anim Avatars" Program :
+	#
+	#	  http://www.frontiernet.net/~imaging/HAnimPoser.html
+
+
+	#		Modified July 30, 1999, to adhere to H-Anim 1.1 standards
+	#			- moved hanim_HumanoidRoot into the
+	#				humanoidBody field of Humanoid node.
+
+
+WorldInfo 	{
+				title "Ellen in a red dress"
+				info 	[	"Robot with movable arms and legs"
+						]
+			}
+
+
+PROTO clothingColor [ ]
+{
+	Appearance { 	material Material {
+					ambientIntensity 0.50
+					diffuseColor  0.70 0.10 0.10
+#					specularColor 0.60 0.10 0.10
+					shininess 0.008
+		}	}
+}
+
+PROTO skinColor [ ] 
+{
+	Appearance { material Material {
+				ambientIntensity 0.26
+				diffuseColor 0.95 0.55 0.5   
+				shininess 0.002
+		}	}
+}
+
+PROTO hairColor [ ]
+{
+	Appearance { material Material {
+				ambientIntensity 0.26
+				diffuseColor 0.19 0.15 0.15
+				specularColor 0.4 0.2 0.2
+				shininess 0.6
+		}	}
+}
+
+
+PROTO Joint [								# was Robot
+			exposedField SFVec3f    center             0 0 0
+			exposedField MFNode     children           []
+			exposedField SFRotation limitOrientation   0 0 1 0
+			exposedField MFFloat    llimit             []
+			exposedField SFString   name               ""
+			exposedField SFRotation rotation           0 0 1 0
+			exposedField SFVec3f    scale              1 1 1
+			exposedField SFRotation scaleOrientation   0 0 1 0
+			exposedField MFFloat    stiffness          [1 1 1]
+			exposedField SFVec3f    translation        0 0 0
+			exposedField MFFloat    ulimit             []
+			]
+{
+	Transform {
+		translation 	IS  translation				# added
+		rotation 		IS  rotation 				# changed
+		center			IS  center
+		children 		IS  children
+	}
+}
+
+
+PROTO Segment	[
+	exposedField    SFVec3f     centerOfMass   0 0 0
+	exposedField    MFNode      children       []
+	exposedField    SFString    name           ""
+	exposedField    SFFloat     mass           0
+	field           SFVec3f     bboxCenter     0 0 0
+	field           SFVec3f     bboxSize       -1 -1 -1
+				]
+{
+		Group	{		children IS children
+						bboxCenter	IS bboxCenter
+						bboxSize	IS bboxSize
+				}
+}
+
+
+PROTO Site [
+	eventIn         MFNode      addChildren
+	eventIn         MFNode      removeChildren
+	exposedField    MFNode      children       []
+	exposedField    SFString    name           ""
+	exposedField    SFRotation  rotation       0 0 1 0
+	exposedField    SFVec3f     translation    0 0 0
+]
+{
+	Transform {
+		addChildren		IS addChildren
+		removeChildren	IS removeChildren
+		children		IS children
+		rotation		IS rotation
+		translation		IS translation
+	}
+}
+
+
+
+PROTO LowerLimbType [					# was Robot
+				exposedField SFString    	name             "limb extremity"
+				exposedField SFRotation 	rotation			0 0 1 0		#  added
+			]
+{
+	Transform {
+
+		translation 0 0.5 0
+		rotation 	IS rotation 				# changed
+		children [
+
+			DEF lowerLimbPart Transform {
+
+					translation 0 1 0
+					children [
+						Transform {
+							translation 0 -0.5 0
+							children [
+								Shape { appearance 	skinColor 	{ }
+										geometry 	Cylinder 	{ radius .1 height 1 }
+#										geometry 	Sphere 	{ radius .12  }
+								 }
+								DEF JointCylinder2	Transform {
+									translation 0 -0.5 0
+									rotation  0  0 1  1.57
+									children [
+										Shape { appearance 	skinColor 	{ }
+												geometry 	Sphere 	{ radius .12 }
+#												geometry 	Cylinder 	{ radius .15 height .24 }
+										}
+								] }
+							] }
+
+		#   DEF HandPart Transform {		children Hand { }	}
+
+
+						]	}
+
+				] }
+}
+
+
+
+
+PROTO UpperLimbType [
+						exposedField SFString   name     "limb trunk"
+					]
+{
+
+#	Group {
+
+		Transform {
+			translation 0    0.5  0
+			center		0   -0.5  0
+
+		children [
+
+
+			Shape 	{ 	appearance	skinColor	{ }
+
+						geometry	Cylinder 	{ radius .1 height 1 }	},
+
+						DEF JointCylinder	Transform {
+								translation 	0  -0.5 0
+								rotation  		0  0 1  1.57
+								children [
+										Shape { appearance 	skinColor 	{ }
+												geometry 	Cylinder 	{ radius .15 height .24 }
+												geometry 	Sphere 	{ radius .10  }
+										}
+								] }
+		] }
+ #	}
+}
+
+
+
+
+PROTO LimbType [
+			  exposedField   SFString    name             "noNameGiven"
+			  exposedField   SFVec3f     translation      0 0 0
+			  exposedField   SFRotation  rotation         0 0 1 0
+			  exposedField   SFVec3f     scale            1 1 1
+			  exposedField   SFRotation  scaleOrientation 0 0 1 0
+			  exposedField   SFVec3f     center           0 0 0
+			 ]
+{
+  Transform {
+	 translation 		IS translation
+	 rotation 			IS rotation
+	 scale 				IS scale
+	 scaleOrientation 	IS scaleOrientation
+	 center 			IS center
+#   children 			IS children
+	 children [
+		Shape { 	appearance skinColor { }
+				geometry Cylinder { radius 0.5 height 6 }
+#				geometry Sphere { radius 1 }
+#				geometry Cone { bottomRadius 0.7 height 5 }
+		}
+	]
+  }
+}
+
+
+
+
+PROTO eyeType	[
+				  exposedField   SFVec3f     translation      0 0 0
+				]
+{
+	Transform {
+		translation IS translation
+	#	translation  	0  8.4  1.2
+		scale		 	1 1 1
+		children [
+		Shape { appearance  hairColor 	{ }
+				geometry 	Sphere 		{ radius 0.15 }
+		}
+	] }
+}
+
+
+
+PROTO HeadAndNeckType [ 	exposedField	SFString    name  		"head"
+							exposedField	SFVec3f 	translation      	0 0 0		#  added
+						]
+{
+	Transform {
+		translation IS translation
+		scale		0.2 0.2 0.2
+
+  children [
+
+
+	DEF face Transform {
+		translation  	0  8.4 0
+		scale		 	0.8  1.3   1
+		rotation 		0  1   0    0
+		children [
+		Shape { 	appearance skinColor { }
+				geometry Sphere { radius 1.3 }
+		}
+	]
+  },
+  DEF  eye1 eyeType { translation  -0.36  8.4  1.2  }
+  DEF  eye2 eyeType { translation   0.36  8.4  1.2  }
+  DEF lips Transform {
+		translation  	0  7.7  0.6
+		scale		 	0.8  0.2   0.9
+		rotation 		1  0 0   0.5
+		children [
+		Shape { 	appearance clothingColor { }
+				geometry Sphere { radius 0.7 }
+		}
+	]
+  },
+	DEF nose Transform {
+		translation  	0  8.1  1.05
+		scale		 	0.6  1.3  1
+		rotation 		1  0  0    -0.3
+		children [
+		Shape { 	appearance skinColor { }
+				geometry Sphere { radius 0.3 }
+		}
+	]
+  },
+
+	DEF neck Transform {
+		translation  	0  6.0 -0.3
+		scale		 	0.85  1.3  1
+		rotation 		0  1    0    0
+	children [
+		Shape { 	appearance skinColor { }
+				geometry Cylinder { radius 0.6 height 2.0 }
+		}
+	]
+  },
+	DEF hair Transform {
+		translation  	0  9.0  -0.6
+		scale		 	0.95  1.1  1
+		rotation 		0  1    0    0
+	children [
+		Shape { 	appearance hairColor { }
+				geometry Sphere { radius 1.6 }
+		}
+	]
+  }
+ ]
+ }
+}
+
+
+PROTO mammaryType [
+			  exposedField   SFString    name             "noNameGiven"
+			  exposedField   SFVec3f     translation      0 0 0
+			  exposedField   SFRotation  rotation         0 0 1 0
+			  exposedField   SFVec3f     scale            1 1 1
+			  exposedField   SFRotation  scaleOrientation 0 0 1 0
+			  exposedField   SFVec3f     center           0 0 0
+			 ]
+{
+  Transform {
+	 translation 		IS translation
+	 rotation 			IS rotation
+	 scale 				IS scale
+	 scaleOrientation 	IS scaleOrientation
+    center 			IS center
+		children [
+		Shape { appearance  clothingColor { }
+				geometry Sphere { radius 1.0 }
+			}
+		] } 	# shirt
+}
+
+
+PROTO TorsoType [  exposedField SFString name "torso" ]
+{
+#	name IS name
+
+	Transform {
+	  translation 0 0.1 0
+
+	  children [
+
+		DEF chest Transform {
+				translation 0  0.1  0
+				scale		1   1   0.4
+				children [
+					Shape {	appearance	clothingColor	{ }
+							geometry	Cylinder	{ radius .50 height 0.6 }
+					}
+			] },
+		DEF spine Transform {
+					translation  0 -0.6  0
+				children [
+					Shape {	appearance	clothingColor	{ }
+							geometry	Box	{ size 0.15 0.8 0.25 }
+#							geometry	Cylinder	{ radius .10 height 0.6 }
+					}
+		] },
+		DEF hips Transform {
+					translation  0 -0.70  0
+					scale		 1  1    0.5
+					rotation  	 1  1    0   3.15
+				children [
+					Shape {	appearance	clothingColor	{ }
+							geometry	Cylinder	{ radius .10 height 0.6 }
+					}
+		] }
+	  ]
+	}
+}
+
+
+
+PROTO TorsoTypeE [  exposedField SFString name "torso" ]
+{
+#	name IS name
+
+	Transform {
+	  translation 0 0.1 0
+	  scale			0.2 0.2 0.2
+
+	  children [
+
+	DEF dress Transform {
+		scale		 1 1 0.75
+		translation	 0 0 -0.4
+		rotation 0 1 0 0
+		children [
+		Shape { appearance  clothingColor { }
+				geometry Cone { bottomRadius 3 height 5 }
+			}
+		] } ,	# dress
+	DEF shirt Transform {
+		translation  0 2 0
+		scale		 1 1 0.5
+		rotation 	 0 0 1 3.14
+		children [
+		Shape { appearance  clothingColor { }
+				geometry Cone { bottomRadius 3 height 7 }
+			}
+		] },	# shirt
+	DEF shoulder Transform {
+		translation  0 5.5 0
+		scale		 1 0.3 0.5
+		children [
+		Shape { appearance  clothingColor {  }
+				geometry Sphere	{ radius 3 }
+			}
+		] },	# shoulder
+	DEF shoulders1 Transform {
+		translation  2.3 5.3 0
+		children [
+		Shape { appearance  clothingColor { }
+				geometry Sphere { radius 0.8 }
+			}
+		] },	# shoulders1
+	DEF shoulders2 Transform {
+		translation  -2.3 5.3 0
+		children [
+		Shape { appearance  clothingColor { }
+				geometry Sphere { radius 0.8 }
+			}
+		] },	# shoulders2
+
+	DEF mam1 mammaryType	{	name	"mam1"	translation  -0.9 4.0 0.5	}
+	DEF mam2 mammaryType 	{	name	"mam2"	translation   0.9 4.0 0.5	}
+
+	]
+  }
+}
+
+
+
+PROTO Humanoid	[
+			exposedField    SFString   name                  ""
+			exposedField    MFString   info                  [ ]
+			exposedField    SFString   version               "1.1"
+			exposedField    MFNode     joints                [ ]
+			exposedField    MFNode     segments              [ ]
+			exposedField    MFNode     sites                 [ ]
+			exposedField    MFNode     viewpoints            [ ]
+			exposedField    MFNode     humanoidBody          [ ]
+			exposedField    SFVec3f    center                0 0 0
+			exposedField    SFRotation rotation              0 0 1 0
+			exposedField    SFVec3f    scale                 1 1 1
+			exposedField    SFRotation scaleOrientation      0 0 1 0
+			exposedField    SFVec3f    transalation          0 0 0
+			exposedField    SFVec3f    translation           0 0 0
+			field           SFVec3f    bboxCenter            0 0 0
+			field           SFVec3f    bboxSize              -1 -1 -1
+
+				]
+{
+
+Transform {
+	center           IS center
+	rotation         IS rotation
+	scale            IS scale
+	scaleOrientation IS scaleOrientation
+	translation      IS translation
+
+	children [
+				Group {		children IS humanoidBody		}
+				Group {		children IS viewpoints			}
+	]
+}
+#		WorldInfo  	{   }
+}
+
+
+
+DEF humanoid Humanoid {
+					name		"Ellen"
+					version		"1.0"
+
+	info 		[
+					"VRML 2.0 Body Hierarchy - HANIM 1.1 Compliant",
+					"authorName=Paul Flavin",
+					"authorEmail=imaging@frontiernet.net",
+					"copyright= (c) 1999 by Paul Flavin. All rights reserved.",
+					"creationDate=April 19, 1999",
+					"usageRestrictions=With the constraint that this may not be
+					 modified, noncommercial redistribution is permitted." ]
+
+	humanoidBody [
+
+DEF hanim_HumanoidRoot Joint
+{
+				name		"HumanoidRoot"
+				translation	 0 0 0
+				rotation	 0 0 1  0
+				center		-0.00405 0.855 -0.000113
+	children [
+
+		DEF hanim_sacroiliac	Joint	{	name	"sacroiliac"
+						rotation	0  0     1  0
+						center		0  1.0  -0.02
+		children [
+
+			DEF hanim_pelvis 			Segment {		name	"pelvis"	# was Segment
+
+				children [
+
+					DEF hanim_l_hip 	Joint {		name	"l_hip"
+							translation		 0.2  -0.4  0
+						children [
+
+							DEF hanim_l_thigh Segment {	name	"l_thigh"
+								children [
+
+									DEF left_thigh UpperLimbType 	{  }
+							#		DEF left_thigh ThighType 		{  }
+
+									DEF hanim_l_knee 		Joint 	{	name	"l_knee"
+											translation 	0  0.5  0
+											center			0  0.5  0
+#											rotation	0  0 1  0
+										children [
+
+									DEF hanim_l_calf Segment {	name	"l_calf"
+											children [
+														DEF left_calf LowerLimbType { }
+							#							DEF left_calf CalfType { }
+									] }		# End l_calf
+								] }			# End l_knee
+						] }					# End l_thigh
+				] },						# End l_hip
+
+			DEF hanim_r_hip 		Joint 	{	name	"r_hip"
+							translation		 -0.2  -0.4  0
+
+					children [
+
+						DEF hanim_r_thigh Segment {	name	"r_thigh"
+								children [
+
+									DEF right_thigh UpperLimbType { }
+						#			DEF right_thigh ThighType { }
+
+									DEF hanim_r_knee 		Joint	{	name	"r_knee"
+											translation 	0  0.5  0
+											center			0  0.5  0
+#											rotation		0  0    1  0
+										children [
+											DEF hanim_r_calf Segment {	name	"r_calf"
+												children [
+
+															DEF right_calf LowerLimbType { }
+						#									DEF right_calf CalfType 	{ }
+
+												]  } 	# End r_calf
+										]  } 			# End r_knee
+								] } 					# End r_thigh
+							]  } 						# End r_hip
+						]  } 							# End Pelvis
+			  #		] } 			# End sacroiliac
+
+			DEF hanim_vl1			Joint { name "vl1"
+								center			0  -0.6  0
+				children [
+
+						DEF Torso				TorsoTypeE		{  },
+
+					DEF hanim_vt1			Joint { name "vt1"
+						children [
+
+							DEF hanim_vc2			Joint { name "vc2"
+#                                          translation 	0 -1.6  0
+											center			0  1.3  0
+#											center			0  0.4  0
+
+								children [
+									DEF HeadAndNeck	HeadAndNeckType	{ translation 0 0.15 0.00 },
+	#			#					DEF HeadAndNeck	HeadAndNeckType	{ translation 0 1.2 0.1 },
+								] }
+
+							DEF hanim_l_shoulder 						Joint { name "l_shoulder"
+#									center		0   -0.5  0
+									translation 0.6  1.1  0
+								children [
+
+									DEF hanim_l_upperarm 			Segment {	name "l_upperarm"
+									children [
+										DEF left_upperArm UpperLimbType { 	name "l_upperArm"
+
+ }
+									]  },
+
+									DEF hanim_l_elbow 		Joint  { 	name "l_elbow"
+											translation 	0  0.5  0
+											center			0  0.5  0
+										children [
+
+											DEF hanim_l_forearm Segment { name "l_forearm"
+											   children [
+												   DEF left_forearm LowerLimbType { }
+					#							   DEF left_forearm ForeArmType { }
+													] }
+										] }
+								] },
+							DEF hanim_r_shoulder 					Joint { 	name "r_shoulder"
+										translation  -0.6 1.1  0
+			#							translation  -0.6 0.5  0
+									children [
+
+										DEF hanim_r_upperarm 		Segment {	name "r_upperarm"
+											children [
+												DEF right_upperArm UpperLimbType { name "r_upperArm" }
+			#									DEF right_upperArm UpperArmType { name "r_upperArm" }
+											]  },
+
+										DEF hanim_r_elbow 			Joint {	name "r_elbow"
+											translation 	0  0.5  0
+											center			0  0.5  0
+											children [
+
+												DEF hanim_r_forearm Segment { name "r_forearm"
+
+													children [
+													   DEF right_forearm LowerLimbType { }
+								#					   DEF right_forearm ForeArmType { }
+													] }
+											] }
+									] },
+						] },
+				] },
+		] },
+	]
+} 							# END 	hanim_HumanoidRoot
+
+
+				 ]
+
+	joints 		[
+					USE hanim_HumanoidRoot,		USE hanim_sacroiliac,
+					USE hanim_vl1,
+					USE hanim_vc2,
+					USE hanim_l_shoulder,		USE hanim_l_elbow,
+					USE hanim_r_shoulder,		USE hanim_r_elbow,
+					USE hanim_pelvis,					#  moved from Segments
+					USE hanim_l_hip,			USE hanim_l_knee,
+					USE hanim_r_hip,			USE hanim_r_knee,
+				]
+	segments 	[
+					USE hanim_l_thigh,			USE hanim_l_calf,
+					USE hanim_r_thigh,			USE hanim_r_calf,
+					USE hanim_l_upperarm,		USE hanim_l_forearm,
+					USE hanim_r_upperarm,		USE hanim_r_forearm
+				]
+	sites		[ ]
+	viewpoints	[
+
+		DEF InclinedView Viewpoint {
+			position 1.500 2.700 2.000
+			orientation -1.1 1.3 0.4 0.85
+			fieldOfView 0.785
+			description "Inclined View"
+			jump TRUE
+		}
+		DEF FrontView Viewpoint {
+			position 0 0.900 2.600
+			orientation 0.0 0.0 0.0 1.0
+			fieldOfView 0.785
+			description "Front View"
+			jump TRUE
+		}
+		DEF SideView Viewpoint {
+			position 2.600 0.900 0.000
+			orientation 0 1.0 0.0 1.57
+			fieldOfView 0.785
+			description "Side View"
+			jump TRUE
+		}
+	]
+}
+
+
+Background {	skyColor [0.112 0.552 0.8]	}
+
+DEF NotIncludedGroup Group {
+	children [
+		DEF hanim_vl4 Joint {}
+		DEF hanim_vl3 Joint {}
+		DEF hanim_vl2 Joint {}
+	]
+}
+
+			#	_____		end of file		_____

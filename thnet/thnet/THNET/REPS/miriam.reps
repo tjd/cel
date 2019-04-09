@@ -1,0 +1,337 @@
+; FILE:       miriam.reps.1
+; PURPOSE:    testing physics/algebra analogies
+; PROGRAMMER: Keith Holyoak
+; CREATED:    5-29-1989; UPDATED:    5/30/89
+
+
+;knowledge of physics sequences
+(defun make_phys_seq ()
+
+(make_struc 'phys_seq
+            'sentence
+            '(all
+              ((phys_object (obj_body) P1)  ; the body is a physical object
+               (moves_along (obj_body obj_path) P2) ; the body moves along a path
+               (straight_line (obj_path) P3)
+               (continuous (obj_path) P4)
+               (start_time (obj_path val_t0) P5) ;starting time of path is t0
+               (finish_time (obj_path val_tf) P6)
+               (minus (val_tf val_t0 val_tot) P7) ;tf - t0 is total time
+               (move (obj_body val_tot) P8) ; body moves for total time
+               (duration (val_tot) P9) ;total time is a duration
+               (time (val_t0) P10) ; t0 is a time
+               (time (val_tf) P11)
+               (temporally_prior_to (val_t0 val_tf) P12) ; t0 before tf
+               (time (val_t*) P13); t* is time variable
+               (instantiates (val_t0 val_t*) P14); t0 is an instantiation of t*
+               (instantiates (val_tf val_t*) P15)
+               (velocity (obj_path val_t0 val_v0) P16) ;velocity of body at t0 is v0
+               (velocity (obj_path val_tf val_vf) P17) ; vel. at t-final is v-final
+               (velocity (obj_path val_t* val_v*) P18) ; vel. at some time is some value
+               (instantiates (val_v0 val_v*) P19) ;v0 is a velocity value
+               (instantiates (val_vf val_v*) P20)
+               (temporally_prior_to (val_v0 val_vf) P21)
+               (distance (val_d*) P22)
+               (change_with (val_d* val_t* val_v*) P23) ; distance changes with time at velocity
+               (acceleration (val_a) P24) ;a is acceleration
+               (change_with (val_v* val_t* val_a) P25) ;vel. changes with time at acceleration a
+               (constant_change_in (val_v* val_a) P26)
+               (multiply (val_a val_tot val_product) P27)
+               (plus (val_t0 val_product val_tf) P28)
+               (minus (val_vf val_v0 val_vchange) P29) ; initial vel - final vel is vel change
+               (divide (val_vchange val_tot val_a) P30) ; vel change / total time = a
+               (number (val_t0) P31)
+               (number (val_tf) P32)
+               (number (val_t*) P33)
+               (number (val_v0) P34)
+               (number (val_vf) P35)
+               (number (val_v*) P36)
+               (number (val_a) P37)
+               (number (val_tot) P38)
+               (number (val_product) P39)
+               (number (val_vchange) P40)
+                 )
+               )                
+) 
+)
+
+
+;an algebra rate problem (#1 in Table 6)
+(defun make_alg_rate ()
+
+(make_struc 'alg_rate
+            'sentence
+            '(all
+             ((typist (obj_typist) R1)
+              (generates (obj_typist obj_typing) R2)
+              (continuous (obj_typing) R3)
+              (start_time (obj_typing 0min) R4)
+              (finish_time (obj_typing 12min) R5)
+              (warmsup (obj_typist val_12min) R6) ; note 12min duration differs from 12min time
+              (duration (obj_val12min) R7)
+              (time (0min) R8)
+              (time (12min) R9)
+              (temporally_prior_to (0min 12min) R10)
+              (time (val_min*) R11)
+              (instantiates (0min val_min*) R12)
+              (instantiates (12min val_min* R13)
+              (type_rate (obj_typing 0min 40w/min) R14)
+              (type-rate (obj_typing 12min 58w/min) R15)
+              (type_rate (obj_typing val_min* val_r*) R16); typying rate at some time is some rate
+              (temporally_prior_to (40w/min 58w/min) R17)
+              (instantiates (40w/min val_r*) R18)
+              (instantiates (58w/min val_r*) R19)
+              (output (val_words*) R20)
+              (increase_with (val_words* val_min* val_r*) R21) ; output changes with time at rate
+              (increase_with (val_r* val_min* val_!) R22) ; rate changes with time at unknown
+              (constant_increase_in (val_r* val_!) R23); constant increase in rate is some unknown
+              (number (0min) R24)
+              (number (12min) R25)
+              (number (40w/min) R26)
+              (number (58w/min) R27)
+              (number (val_12min) R28)
+              (number (val_min*) R29)
+              (number (val_r*) R30)
+              (number (val_words*) R31)
+              (number (val_!) R32)
+              )
+            )
+)
+)
+)
+
+
+;an algebra whole problem (#1 in Table 6)
+(defun make_alg_whole ()
+
+(make_struc 'alg_whole
+            'sentence
+            '(all
+             ((teller (juanita) W1)
+              (receives (juanita obj_salary) W2)
+              (discrete (obj_salary) W3)
+              (start_yr (juanita yr1) W4)
+              (finish_yr (juanita yr13) W5)
+              (employed (juanita val_12yrs) W6)
+              (duration (val_12yrs) W7)
+              (time (yr1) W7)
+              (time (yr13) W8)
+              (temporally_prior_to (yr1 yr13) W9)
+              (time (val_yr*) W10)
+              (instantiates (yr1 val_yr*) W11)
+              (instantiates (yr13 val_yr*) W12)
+              (salary (obj_salary yr1 12400/yr) W13)
+              (salary (obj_salary val_yr13 16000/yr) W14)
+              (salary (obj_salary val_yr* val_sal*) W15)
+              (temporally_prior_to (12400/yr 16000/yr) W16)
+              (instantiates (12400/yr val_sal*) W17)
+              (instantiates (16000/yr val_sal*) W18)
+; note absence of analog to "/distance/output", which would be cumulative salary 
+; also absent is analog to "distance increasing at velocity"
+              (increase_with (val_sal* val_yr* val_!) W19)
+              (constant_increase_in (val_sal* val!) W20)
+              (number (yr1) W21)
+              (number (yr13) W22)
+              (number (12400/yr) W23)
+              (number (16000/yr) W24) 
+              (number (val_yr*) W25)
+              (number (val_sal*) W26)
+              )
+            )
+)
+)
+
+
+;algbra sequences knowledge
+(defun make_alg_seq ()
+
+(make_struc 'alg_seq
+            'sentence
+            '(all
+              ((linear_order (obj_series) A1)
+               (discrete (obj_series) A2)
+               (first_term (obj_series val_t1) A3)
+               (last_term (obj_series val_tn) A4)
+               (equal (val_length val_tn) A5)
+               (amount (val_length) A6) ; length of series is an amount
+               (minus (val_tn val_t1 val_tn-1) A7) ;last term - first term is #increments, n-1
+               (amount (val_n-1) A8)
+               (term (val_t1) A9)
+               (term (val_tn) A10)
+               (prior_to (val_t1 val_tn) A11)
+               (term (val_t*) A12)
+               (instantiates (val_t1 val_t*) A13)
+               (instantiates (val_tn val_t*) A14)             
+               (value (obj_series val_t1 val_a1) A15) ; value of 1st term of series is a1
+               (value (obj_series val_tn val_an) A16) ; value of nth term is an
+               (value (obj_series val_t* val_a*) A17) ; value of some term is something
+               (prior_to (val_a1 val_an) A18)
+               (instantiates (val_a1 val_a*) A19)
+               (instantiates (val_an val_a*) A20)
+               (running_total (val_tot*) A22)
+               (change_with (val_tot* val_t* val_d) A23) ; running total changes with term at constant diff.
+               (const_difference_in (val_a* val_d) A24) ; constant diff in value is d
+               (constant_difference (val_d) A25) ; d is constant-difference
+               (constant_change_in (val_a* val_d) A26) ; value changes constantly with d
+               (multiply (val_d val_n-1 val_product) A27)
+               (plus (val_a1 val_product val_an) A28)
+               (minus (val_an val_a1 val_vchange) A29) ; last value - first value = change in value
+               (divide (val_vchange val_n-1 val_d) A30)
+               (number (val_t1) A31)
+               (number (val_tf) A32)
+               (number (val_t*) A33)
+               (number (val_a1) A34)
+               (number (val_an) A35)
+               (number (val_a*) A36)
+               (number (val_d) A37)
+               (number (val_n) A38)
+               (number (val_n-1) A39)
+               (number (val_tot) A40)
+               (number (val_product) A41)
+               (number (val_vchange) A42)
+ 
+              )
+            )
+)
+)
+
+;a physics acceleration problem (#1 in Table 6)
+(defun make_physics ()
+
+(make_struc 'physics
+            'sentence
+            '(all
+              ((train (obj_train) P1)
+               (moves_along (obj_train obj_track) P2)
+               (straight_line (obj_train) P3)
+               (continuous (obj_track) P4)
+               (start_time (obj_track 0sec) P5)
+               (finish_time (obj_track 12sec) P6)
+               (travels (obj_train val_12sec) P7)
+               (duration (val_12sec) P8)
+               (time (0sec) P9)
+               (time (12sec) P10)
+               (temporally_prior_to (0sec 12sec) P11)
+               (time (val_sec*) P12)
+               (instantiates (0sec val_sec*) P13)
+               (instantiates (12sec val_sec*) P14)
+               (velocity (obj_track 0sec 15m/sec) P15)
+               (velocity (obj_track 12sec 45m/sec) P16)
+               (velocity (obj_track val_m* val_sec*) P17) 
+               (instantiates (15m/sec val_m*) P18)
+               (instantiates (45m/sec val_m*) P19)
+               (temporally_prior_to (15m/sec 45m/sec) P20)
+               (acceleration (val_!) P21)
+               (increase_with (val_m* val_sec* val_!) P22)
+               (constant_increase_in (val_m* val_!) P23)
+               (number (0sec) P24)
+               (number (12sec) R25)
+               (number (40w/min) P26)
+               (number (15m/sec) P27)
+               (number (45m/sec) P28)
+               (number (val_sec*) P29)
+               (number (val_m*) P30)
+               (number (val_!) P31)
+                 )
+               )                
+) 
+)
+
+
+(defun miriam1 ()
+   (clear_net) 
+   (make_alg_rate)
+   (make_phys_seq)
+   (setq experiment '"Mapping alg_rate to phys_seq.")
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'typist 'phys_obj .02)
+
+   (constraint_map 'alg_rate 'phys_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+) 
+
+
+(defun miriam2 () 
+   (clear_net) 
+   (make_alg_whole)
+   (make_phys_seq)
+   (setq experiment '"Mapping alg_whole to phys_seq.")
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'teller 'phys_obj .02)
+   (constraint_map 'alg_rate 'phys_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+) 
+
+
+
+(defun miriam3 () 
+   (clear_net) 
+   (make_physics)
+   (make_phys_seq)
+   (setq experiment '"Mapping physics to phys_seq.")
+   (nosimilar)
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'travels 'moves .05)
+   (similar 'train 'phys_obj .05)
+   (constraint_map 'physics 'phys_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+) 
+
+
+(defun miriam4 () 
+   (clear_net) 
+   (make_alg_rate)
+   (make_alg_seq)
+   (setq experiment '"Mapping alg_rate to alg_seq.")
+   (nosimilar)
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'temporally_prior_to 'prior_to .05)
+   (constraint_map 'alg_rate 'alg_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+)
+
+(defun miriam5 () 
+   (clear_net) 
+   (make_alg_whole)
+   (make_alg_seq)
+   (setq experiment '"Mapping alg_whole to alg_seq.")
+   (nosimilar)
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'temporally_prior_to 'prior_to .05)
+   (constraint_map 'alg_whole 'alg_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+)
+
+(defun miriam6 () 
+   (clear_net) 
+   (make_physics)
+   (make_alg_seq)
+   (setq experiment '"Mapping physics to alg_seq.")
+   (nosimilar)
+   (similar 'constant_increase_in 'constant_difference_in .05)
+   (similar 'increase_with 'change_with .05)
+   (similar 'duration 'amount .05)
+   (similar 'straight_line 'linear_order .05)
+   (similar 'temporally_prior_to 'prior_to .05)
+   (constraint_map 'physics 'alg_seq)
+   (acme-mode)
+   (debug_els '())
+   (ra)
+)
+
+

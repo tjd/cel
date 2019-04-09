@@ -1,0 +1,80 @@
+Throughout the source code I have marked areas for improvement with a comment
+starting with "TODO". For example:
+// TODO - this could be improved. 
+
+Some of the current limitations of the computer model and areas that I think
+should improved are described in this file.
+
+Command line package (util.cline)
+
+- change so that the cursor can't move past the most recent command
+- improve the argument handling scheme to handle a varying number 
+of arguments. Right now there is a -1 hack that enables any number
+of arguments, however this doesn't give the user very intelligent 
+feedback when they are using the wrong number of arguments
+
+Note regarding the value of constraint weightings. 
+
+Initially I was using just the similarity ratio to establish the weightings
+for constraints. This is a number anywhere from 0 to 2. However, I have
+modified the algorithm so that the weighting is the similarityRatio divided by
+10. This constrains the value of weights in the range from 0.0 to 0.2. Most of
+the constraints end up with weights between 0.025 and 0.06. This is somewhat
+arbritary, and I should maybe experiment with values other than 10 and see 
+how this affects the model results.
+
+Changing weights when motion is present
+
+When there is a motion pattern in the scene, the weightings on motion nodes
+should exceed the weightings for static mappings. If they are the same, it
+seems that static mappings are often prominent, even though there are some
+very obvious dynamic analogies to be made (eg. the siege and tumor problem
+example - mappings are established between features of the castle and cylinder
+shape of the converging radiation rays). I currently scale down all the static
+mappings, however once again this is by a fixed value and I should experiment
+with other values.
+
+Convergence Motion
+
+The convergence motion pattern could be improved. Right now, a convergence 
+pattern is detected all relative to the root of a scene. However, there 
+might be a convergence pattern off in one corner that the current algorithm
+does not detect but is still a valid convergence motion. The methods that 
+detect objects at the center of a convergence motion could also be beefed up.
+For example, right now they detect whether an object is at the convergence 
+center by seeing if it is relatively small compared to the overall size of 
+the scene (1/5 the size is what I currently use), and whether the center of 
+the object is within 2% of the convergence center.
+
+Also, we could calculate the plane of convergence. In the siege example, 
+the castle could be 100m tall, however the soldiers would still be converging
+at it's centre (they are only converging on the x,z plane).
+
+Use the Alpha values as part of the similarity ratio (speed with which objects
+complete their cycle).
+
+How do you determine the natural orientation of a scene. This is important
+when comparing the angles of converging objects. Currently, the model assumes
+that the two scenes have the same orientation.
+
+I am not sure how the human mind determines the natural orientation of
+a scene. It might be a functional association, as in the case of the castle
+where most of the action is around the main gate. 
+
+Constraint Network Weightings
+
+Effect on the arch example - different set of mappings is established - the 
+arches are the fourth mapping - note that the higher 3 mappings all make 
+sense - the sun and the sun, the ground and the ground, and the two group
+nodes for the two scenes (the two scenes are indeed highly analogous). I
+should experiment more with different the different constraint weighting
+schemes.
+
+Visual Similarity Comparsions
+
+The similarity comparisons should all be carefully checked, and some of them
+could definately be improved. In particular, the similarity tests that
+establish a ratio for TransformGroup nodes should be improved. Analyzing the
+transform3D is basically a 4x4 matrix comparison, and the math could no doubt
+be improved.
+

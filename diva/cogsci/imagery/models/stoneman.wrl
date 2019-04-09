@@ -1,0 +1,146 @@
+#VRML V2.0 utf8
+
+#Cosmo Worlds V2.0
+
+Group {
+	children [
+	
+	# Viewpoint
+#	Viewpoint {
+#		description "all-objects"
+#		position 20.0 9.0 50.0
+#		orientation 0.0 1.0 0.0 0.411
+#		},
+	# Sky
+#		Background {
+##			skyColor [
+#				0.0 0.2 0.7,
+#				0.0 0.5 1.0,
+#				1.0 1.0 1.0
+#			]
+#			skyAngle [ 1.309, 1.571 ]
+#		},
+	#  Ground
+		Shape {
+			appearance DEF Green Appearance {
+				material Material {
+					diffuseColor 0.0 1.0 0.0
+				}
+			}
+			geometry Box {
+				size 100.0 0.1 100.0
+			}
+		},
+	# Box 
+		Transform {
+			translation -1.5 0.5 -2
+			children Shape {
+				appearance DEF Purple Appearance {
+					material Material { 
+						diffuseColor 0.9 0.0 0.9 
+					}
+				}
+				geometry Sphere {
+					radius 0.5
+				}
+			}
+		},
+	# Stoneman
+		Transform {
+		  translation 1 0 0
+		  children	[
+		  	# Top Block + eyes and nose
+			Transform {
+				translation	0 1.8 0
+			    children [
+
+					# Head ball
+					Transform {
+					  children	Shape {
+						appearance DEF LightBrown Appearance {
+						  material	Material {
+						  	diffuseColor 0.75 0.6 0.38
+						  }
+						}
+						geometry	Box {
+						  size 0.4 0.4 0.4
+						}
+					  }
+					},
+
+					# Carrot nose
+					Transform {
+					  translation	0 0 0.275
+					  rotation	0.707106 0 0 1.59
+					  children Shape {
+					  	appearance	Appearance {
+							material	Material {
+							  ambientIntensity	0.238636
+							  diffuseColor	0.88 0.32 0.2
+							}
+						 }
+					  	geometry	Cone {
+							bottomRadius	0.025
+							height	0.15
+						}
+					  }
+			  		},
+
+					# Left eye
+					Transform {
+					  translation	-0.05 0.06 0.2
+					  children Shape {
+					  	appearance DEF Black Appearance {
+							material	Material {
+							  diffuseColor	0 0 0
+							}
+						 }
+					  	geometry	Sphere {
+							radius	0.02
+						}
+					  }
+			  		},
+
+					# Right eye
+					Transform {
+					  translation	0.05 0.06 0.2
+					  children Shape {
+						appearance USE Black
+					  	geometry	Sphere {
+							radius	0.02
+						}
+					  }
+			  		},
+				]
+			},
+			# Middle Block
+			Transform {
+			  translation	0 1.3 0
+			  children	Shape {
+				appearance	USE LightBrown
+				geometry	Box {
+				  size 0.6 0.6 0.6
+				}
+			  }
+			},
+			# Bottom Ball
+			Transform {
+			  translation	0 0.5 0
+			  children	Shape {
+			  	appearance USE LightBrown
+				geometry	Box {
+				  size 1.0 1.0 1.0
+				}
+			  }
+			},
+		  ]
+		},
+
+		# snowman view
+#		Viewpoint {
+#		  position	-2.2 2.2 3.5
+#		  orientation	0.5 1 0 -0.57
+#		  description	"snowman_view"
+#		},
+	]
+}

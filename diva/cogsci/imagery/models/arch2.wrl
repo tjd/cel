@@ -1,0 +1,114 @@
+#VRML V2.0 utf8
+# The VRML 2.0 Sourcebook
+# Copyright 1997 By
+# Andrea L. Ames, David R. Nadeau, and John L. Moreland
+
+Group {
+	children [
+
+	# Viewpoint
+#	Viewpoint {
+#		description "all-objects"
+#		position 20.0 9.0 50.0
+#		orientation 0.0 1.0 0.0 0.411
+#		},
+	# Sky
+#		Background {
+#			skyColor [
+#				0.0 0.2 0.7,
+#				0.0 0.5 1.0,
+#				1.0 1.0 1.0
+#			]
+#			skyAngle [ 1.309, 1.571 ]
+#		},
+	# Sun
+        Transform {
+            translation -30.0 14.5 -30.0
+            children [
+#                PointLight {
+#                    location  0.0 0.0 0.0
+#                    radius    150.0
+#                    intensity 1.0
+#                    #ambientIntensity 0.2
+#                    color 0.7 0.5 0.0
+#                },
+                Shape {
+                    appearance Appearance {
+						material Material {
+							diffuseColor 1.0 1.0 0.0
+						}
+                    }
+                    geometry Sphere { radius 2.0 }
+                }
+            ]
+        },
+    
+	#  Ground
+		Shape {
+			appearance DEF Green Appearance {
+				material Material {
+					diffuseColor 0.0 1.0 0.0
+				}
+			}
+			geometry Box {
+				size 100.0 0.1 100.0
+			}
+		},
+	# Cone in the foreground
+		Transform {
+			translation 15 4.0 15
+			children Shape {
+				appearance DEF Purple Appearance {
+					material Material { 
+						diffuseColor 0.9 0.0 0.9 
+					}
+				}
+				geometry Cone {
+					bottomRadius 5.0
+					height 8.0
+				}
+			}
+		},
+	DEF Arch2 Transform {
+		translation 5 0 0
+		children [
+			# Left Column
+				Transform {
+					translation -4.0 6.0 0.0
+					children Shape {
+						appearance DEF Red Appearance {
+							material Material {
+							 diffuseColor 1.0 0.0 0.0
+							 }
+						}
+						geometry Cylinder {
+							radius 2.0
+							height 12.0
+						}
+					}
+				},
+			# Right Column
+				Transform {
+					translation 4.0 6.0 0.0
+					children Shape {
+						appearance USE Red
+						geometry Cylinder {
+							radius 2.0
+							height 12.0
+						}
+					}
+				},
+			# Archway span
+				Transform {
+					translation 0.0 13.0 0.0
+					children Shape {
+						appearance USE Red
+						geometry Box {
+							size 14.0 2.0 2.0
+						}
+					}
+				}
+			]
+		},
+	]
+}

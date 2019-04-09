@@ -1,0 +1,469 @@
+
+
+Take a look at this -- it should be significantly more informative than
+the old version.  Especially since ARCS was not around when that was
+written!!
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+NAME
+     thnet - THinkNet connectionist software
+
+SYNOPSIS
+     thnet
+
+DESCRIPTION
+     THNET (short for THinkNET) is a set of Common LISP  programs
+     for  modeling  high-level cognitive operations using connec-
+     tionist networks.  Its major components are:
+
+     (1)  common modules for running and displaying networks;
+
+     (2)  ACME, a program that creates  networks  for  analogical
+          mapping;
+
+     (3)  ECHO, a program that creates  networks  for  evaluating
+          explanatory hypotheses; and
+
+     (4)  ARCS, a program to model analogical retrieval.
+
+     THNET is not in the public  domain,  and  is  copyright  (c)
+     1988, Paul Thagard, but permission is hereby granted for its
+     use for research on thinking.  Permission is denied for  its
+     use  for  commercial  or military purposes.  Applications of
+     ACME should cite Holyoak and Thagard (1988), while  applica-
+     tions of ECHO should cite Thagard (1988).
+
+     After starting up you will enter the menu  environment  pro-
+     vided  by  THNET, which allows you to select an application.
+     Information about the format of data files for  the  indivi-
+     dual applications is given below.
+
+ACME
+     To run ACME (an acronym for  Analogical  Constraint  Mapping
+     Engine),  select the first menu item.  This will lead to the
+     following sequence of questions:
+          Do you wish to use the grapher?
+               yes - invoke the graphics module,  available  only
+               on Sun workstations
+               no - bypass this option
+          Would you like to use the default parameter values?
+               yes - reset parameters to their default values
+               no - leave parameters as they were
+          What ACME application do you wish to run?
+               A whole menu of applications which are available -
+               select any number.
+
+
+ARCS
+     To run ARCS (Analogical Retrieval  by  Constraint  Satisfac-
+     tion),  select  the second menu item.  This will immediately
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 1
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+     give you a menu of options, some  of  which  give  you  more
+     choices about what to do, some less.
+
+
+ECHO
+     To run ECHO (the explanatory  coherence  model)  select  the
+     third menu item.  This asks the following questions:
+          Do you wish to use the grapher?
+               yes - invoke the graphics module,  available  only
+               on Sun workstations
+               no - bypass this option
+          What ECHO application do you wish to run?
+               A whole list of options is provided.
+
+
+OTHER COMMANDS
+     There are many commands which can be invoked once  the  pro-
+     grams have been loaded.  They can be invoked either from the
+     LISP interpreter, or stored in a "source file" which can  be
+     loaded using the LISP load command.  These fall into several
+     categories:
+
+     DATA SPECIFICATION UTILITIES
+          (MAKE_STRUC NAME TYPE &rest FIELDS) - ACME, ARCS
+               Builds a structure named NAME, of type TYPE  (such
+               as  problem,  play, fable, story, etc.).  Attaches
+               to it any number of fields, (at least  one)  which
+               can  be  such  things  as conditions and goal of a
+               problem.
+          (MCON NAME FIELDS &optional SYNTAX) - ACME, ARCS
+               Creates a  semantics  entry  for  the  word  NAME.
+               FIELDS  is  a  list  of  fields which may include:
+               synonyms, antonyms, superordinates,  subordinates,
+               sub-parts   (meronyms),   "part-ofs"   (holonyms),
+               tenses, and plurals.  The  optional  SYNTAX  entry
+               will be tacked on as another property.
+          (PROPOSITION NAME DESCRIPTION) - ECHO
+               This command declares a unit NAME for  a  proposi-
+               tion which represents DESCRIPTION.
+          (DATA LIST) - ECHO
+               Here LIST normally is just a list  of  proposition
+               names,  which will be marked as empirical evidence
+               You can indicate that some pieces of evidence  are
+               particularly    important    by   using   a   list
+               (proposition-name num) instead of just the  propo-
+               sition  name,  to indicate that this piece of evi-
+               dence has  num  times  the  default  significance.
+               Note:   this  should  be called only after all the
+               EXPLAIN statements, so that the  check  for  unex-
+               plained evidence will work.
+          (CONTRADICT PROPOSITION1 PROPOSITION2) - ECHO
+               This is used to set up an inhibition  between  two
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 2
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+               propositions.
+          (EXPLAIN EXPLAINERS PROPOSITION &optional VALUE) - ECHO
+               Sets up excitatory links from EXPLAINERS to PROPO-
+               SITION, indicating the evidence which supports the
+               given hypothesis.  VALUE may be given as  a  value
+               between 0 and 1 (default 1) to indicate how strong
+               these supporting data are.
+          (SIMILAR PRED1 PRED2 DEGREE) - ACME
+               Used to arbitrarily define a DEGREE of  similarity
+               (from 0 to 1) between two predicates.
+          (IMPORTANT ELEMENTS) - ACME, ARCS
+               To indicate  that  each  of  a  list  of  ELEMENTS
+               (predicate,  object, or proposition) is important.
+               Ex: (important '(dog obj-fido dog-story-1))
+          (PRESUMED UNITS) - ACME, ARCS
+               To show that some mapping units (not elements) are
+               presumed  to  hold.   Ex: (presumed '(dog=dog obj-
+               fido=obj-ralph))
+
+     NETWORK OPERATION UTILITIES
+          (CLEAR_NET &optional LEAVE-STRUCTURES)  -  ACME,  ARCS,
+          ECHO
+               Invoked  to  remove  the  network   generated   by
+               CONSTRAINT_MAP,  or  by  ECHO's  network  building
+               functions, and, by default, all associated  struc-
+               tures   in  memory  (ACME  and  ARCS).   With  the
+               optional  argument  LEAVE-STRUCTURES  non-nil,  it
+               will  clear  the  network  but  leave  these data.
+               CLEAR_NET is careful not  to  touch  the  semantic
+               database, if that has been loaded.
+          (CONSTRAINT_MAP STRUC1 STRUC2) - ACME
+               Initiates the  mapping  process  between  the  two
+               structures  specified  - attempting to find a good
+               analogical  match  between  them.   Assumes   that
+               STRUC1  and  STRUC2  are already in memory, having
+               been made with MAKE_STRUC.
+          (RUN_HYP_NET PGM) - ACME, ARCS, ECHO
+               Runs   the   constraint   network    created    by
+               CONSTRAINT_MAP,  PROBE_FROM_STRUC,  or  by  ECHO's
+               EXPLAIN  and  CONTRADICT  functions.   PGM  should
+               evaluate to ACME, ARCS, or ECHO, respectively.
+          (RUN_EXP) - ECHO
+               Runs ECHO's networks with some additional prepara-
+               tion,   which   would   better   be   done  within
+               RUN_HYP_NET.  Oh, well...
+
+     DEBUGGING FACILITIES
+          THNET has various facilities to  make  inspecting  net-
+          works  easier.   Most  of these are in the file util.l.
+          Here is a guide to the most useful features.   Many  of
+          these  use  function  names  that are more cryptic than
+          mnemonic since you will find yourself frequently  using
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 3
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+          them  for  experimental  purposes.   These commands are
+          normally given interactively, not in input files.
+          (WTP LIST) - ACME, ARCS, ECHO
+               Tells RUN_HYP_NET when to print out system  infor-
+               mation  and  when  to  stop.   Ex.:   (wtp '(10 50
+               100)), which will print out information  at  these
+               three  time  cycles,  and  then stop if it reaches
+               100.
+          (STOP) - ACME, ARCS, ECHO
+               To instruct RUN_HYP_NET to stop when  the  network
+               has settled, i.e. no unit's activation has changed
+               more than the variable ASYMPTOTE  (default  .001).
+               This  is  the  default.   On the other side of the
+               coin:
+          (UNSTOP) - ACME, ARCS, ECHO
+               Lets networks run past settling.
+          (DEBUG_RUN) - ACME, ARCS, ECHO
+               This function is called at every cycle  of  updat-
+               ing.   So  if you want to find out some particular
+               property of the network at  every  cycle  you  can
+               define  it accordingly.  It is given no arguments.
+               Some useful functions are provided which automati-
+               cally redefine DEBUG_RUN:
+               (DEBUG_UNITS LIST) - ACME, ARCS, ECHO
+                    Prints out the activation of each of units in
+                    LIST   at  every  cycle.   Ex.:  (DEBUG_UNITS
+                    '(unit1 unit2 unit3))
+               (DEBUG_ELS) - ACME, ARCS, ECHO
+                    Applies a similar process to a list  of  ele-
+                    ments,  telling   you the activation of every
+                    mapping unit concerning the elements at  each
+                    cycle.
+               (DBA) - ACME, ARCS, ECHO
+                    Debugs analogies by  printout  out  the  best
+                    mappings at each timesteps,
+               (DBM) - ACME, ARCS, ECHO
+                    Provides minimal debugging, printout out only
+                    the cycle number.
+               In addition,  the  activation  graphing  functions
+               (see  below)  use  DEBUG_RUN to collect their data
+               and to execute.
+          (PRU UNIT) - ACME, ARCS, ECHO
+               Prints all the links to a particular UNIT.
+          (SHU ELEMENT) - ACME, ARCS
+               Shows all the units concerning the given element.
+          (PL UNIT) - GENERAL
+               Since units are represented by property lists, you
+               can  get  a full range of information about a unit
+               by the command (PL UNIT).
+
+     OPERATIONAL PARAMETERS
+          Below is  a  list  of  all  of  the  major  operational
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 4
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+          parameters that affect how the constraint network runs.
+          The ones which are most commonly manipulated have  been
+          provided  with  short functions to change their values.
+          Sensitivity tests have shown that  all  THNET  programs
+          work well over a large range of values, but values that
+          lead to quick settling of networks can be got automati-
+          cally  by  the  commands  (DEFAULTS  'acme),  (DEFAULTS
+          'arcs), and (DEFAULTS  'echo),  or  (DFA),  (DFR),  and
+          (DFE) for short.  Other useful commands are:
+          (DECAY NUM) - ACME, ARCS, ECHO
+               Sets decay to NUM, between 0 and 1.
+          (EXCIT NUM) - ACME, ARCS, ECHO
+               Sets the default excitation to NUM, between 0  and
+               1.
+          (INHIB NUM) - ACME, ARCS, ECHO
+               Sets the inhibition to num, between -1 and 0.
+          (GROSS_ON) - ACME, ARCS, ECHO (GROSS_OFF)
+               THNET has available two different  updating  rules
+               for the equations.  The default is a Rumelhart and
+               McClelland rule,  but  a  Grossberg  rule  can  be
+               invoked  interactively  with  GROSS_ON.  GROSS_OFF
+               will revert to the Rumelhart and McClelland  rule.
+               The  Grossberg rule improves ACME's performance by
+               reducing settling time on some examples.
+
+     GRAPHICS FUNCTIONS
+          Greg Nelson has written a graphics  package  that  runs
+          with THNET under Suntools (on Sun workstations) and can
+          be used to display several kinds of information.  Among
+          those  functions  which  are  generally useful are ones
+          which show all of the connections to a given unit  (the
+          "network"  grapher),  a set of functions to display the
+          activations of a unit of set of units during the opera-
+          tion  of the network (the "activation" grapher), a gen-
+          eral line plotter and scatterplot generator, and a LISP
+          function grapher.
+          (SG UNIT) - ACME, ARCS, ECHO
+               This will open up a lisp window  and  display  the
+               unit UNIT and all the units to which it is linked.
+               Solid lines indicate  excitatory  links  and  thin
+               lines  inhibitory  ones.  The weights on the links
+               are shown by numbers on the  lines.   The  numbers
+               below the unit names are the unit activations.  To
+               inspect other units, merely  use  your  mouse  and
+               click with the left button on the unit you want to
+               examine.  To exit this grapher and return  to  the
+               main  LISP  window,  click  on  the unit currently
+               being examined.  The middle button can be used  to
+               select  a  different  display format (circular vs.
+               columnar).  The columnar format can  display  more
+               information, but there are some unpredictable bugs
+               in its operation.
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 5
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+          (AG) - ACME, ARCS, ECHO
+               The activation grapher will graph  the  activation
+               histories  of up to 32 mapping units from any con-
+               straint network.  This will graph the  activations
+               of  units  that  have  been specified in the input
+               file or from the keyboard.  They may be  specified
+               using the following commands:
+                    (GRAPH UNIT-LIST) - ACME, ARCS, ECHO
+                         Will draw graphs for all  of  the  units
+                         specified in UNIT-LIST.  It is important
+                         that the network be initialized but  not
+                         yet run when this command is executed.
+                    (GRAPH_MAPS ELT-LIST) - ACME, ARCS
+                         Traces all the units concerning the par-
+                         ticular elements in ELT-LIST.
+               If you have no more than 32 units, as  often  hap-
+               pens with ECHO, you can graph them all by specify-
+               ing (GRAPH ALL_UNITS).  Otherwise, to  graph  just
+               the  hypotheses  do  (GRAPH ALL_EXPLAINERS).  Bug:
+               if you switch between applications, you  may  have
+               to run your example twice to get the right activa-
+               tion graph.
+          (LG) - GENERAL
+               This is the  general  line-grapher  initialization
+               function.   It  sets  up a window where any of the
+               following functions can be used.
+               (LP Y-VECTOR &optional X-VECTOR) - GENERAL
+                    Does a line plot of Y vs. X,  drawing  scaled
+                    axes  as  appropriate.   When  no X-VECTOR is
+                    given, it will use the integers from 1  to  N
+                    by default.
+               (MLP &rest Y-VECTORS) - GENERAL
+                    Accepts a whole  group  of  Y-VECTORS,  plots
+                    them  all  versus  the  integers, on the same
+                    axes, setting  the  range  to  encompass  all
+                    datapoints.
+               (SP Y-VECTOR &optional X-VECTOR) - GENERAL
+                    Like LP, but does a scatterplot instead.
+               (MSP &rest Y-VECTORS) - GENERAL
+                    Like MLP, but does scatter plots instead.
+               (BGA Y-VECTOR) - GENERAL
+                    Produces a bar graph which uses the values of
+                    the components of the Y-VECTOR as the heights
+                    of the bars.
+               (BGC DATA-VECTOR &optional BIN-WIDTH) - GENERAL
+                    Generates a bar graph  of  frequency  counts,
+                    with "bins" of width BIN-WIDTH (default 1).
+          (FG &optional FUNCTION FILENAME) - GENERAL
+               Initializes the LISP function  grapher,  and  pro-
+               vides  the  option  to  specify  a FUNCTION, and a
+               FILENAME from which to get that  function  defini-
+               tion.   This  command  can  be used again later to
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 6
+
+
+
+
+
+
+THNET(1)                  USER COMMANDS                  THNET(1)
+
+
+
+               graph another function.  The graphs  produced  are
+               similar  to  those of the network grapher, but the
+               following information  is  provided:   a  function
+               name  and  source file (if known) are printed next
+               to each node.  The  light  links  indicate  "chil-
+               dren,"  functions called by the one being studied,
+               and the heavy ones indicate "parents," the calling
+               functions.   This  network  can  be browsed in the
+               same way  as  before.   Additional  files  can  be
+               loaded in to provide more information.
+
+
+DATA STRUCTURES
+     STRUCTURES
+          A structure is the basic unit of "memory" used by  ARCS
+          and ACME.  It consists of one or more fields, each con-
+          taining  one  or  more  propositions.  They   are   the
+          equivalent of cases in case-based reasoning.
+
+     FIELDS
+          Fields are just sets of propositions which go  together
+          logically  -  rather than lumping all of the parts of a
+          play into one place, we might divide it into characters
+          and story or into scenes.  This is what fields are used
+          for.  They are of the form:
+               (fieldname (proposition1 proposition2 ...))
+
+     PROPOSITIONS
+          A proposition corresponds to a single  idea,  sentence,
+          or  word.   It  is the basic unit of the predicate cal-
+          culus representation we are using.  Each proposition is
+          of the form:
+               (predicate  (argument1  argument2  ...)  truth-val
+               proposition-name)
+          The predicate is an English word, and the arguments are
+          simply any well formed LISP symbols that can be used to
+          represent particular objects.  In some instances, these
+          are other proposition names, and on occasion, a list is
+          used of the form (proposition-name truth-val), to  make
+          a  hypothetical  assertion  about a particular proposi-
+          tion.  The truth-val is selected from  the  set  {true,
+          false,  unknown} as is appropriate, and the proposition
+          name is some unique name representing this proposition.
+          For  more information, see our manual on predicate cal-
+          culus (forthcoming).
+
+
+
+
+
+
+
+
+
+
+Sun Release 3.2   Last change: January 24, 1989                 7
+
+
+
+
